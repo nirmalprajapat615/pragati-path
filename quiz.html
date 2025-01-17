@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>प्रश्नोत्तरी</h2>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. इसमें गोले वाला शब्द कौनसा है?</p>
+                <input type="radio" name="q1" value="र"> र<br>
+                <input type="radio" name="q1" value="ल"> ल<br>
+                <input type="radio" name="q1" value="क"> क<br>
+                <input type="radio" name="q1" value="च"> च<br>
+            </div>
+            <div class="question">
+                <p>2. इसमें "द" की वास्तविक संख्या कौनसी है?</p>
+                <input type="radio" name="q2" value="1"> 1<br>
+                <input type="radio" name="q2" value="3"> 3<br>
+                <input type="radio" name="q2" value="5"> 5<br>
+                <input type="radio" name="q2" value="2"> 2<br>
+            </div>
+            <div class="question">
+                <p>3. इसमें "प" की आक्रतिक संख्या कौनसी है?</p>
+                <input type="radio" name="q3" value="5"> 5<br>
+                <input type="radio" name="q3" value="3"> 3<br>
+                <input type="radio" name="q3" value="4"> 4<br>
+                <input type="radio" name="q3" value="9"> 9<br>
+            </div>
+            <div class="question">
+                <p>4. क्या "ढ" की कोई वास्तविक संख्या है?</p>
+                <input type="radio" name="q4" value="yes"> हाँ<br>
+                <input type="radio" name="q4" value="no"> नहीं<br>
+            </div>
+            <div class="question">
+                <p>5. क्या "ल" की कोई वास्तविक संख्या है?</p>
+                <input type="radio" name="q5" value="yes"> हाँ<br>
+                <input type="radio" name="q5" value="no"> नहीं<br>
+            </div>
+            <div class="question">
+                <p>6. इसमें बिना गोले का शब्द है?</p>
+                <input type="radio" name="q6" value="छ"> छ<br>
+                <input type="radio" name="q6" value="न"> न<br>
+                <input type="radio" name="q6" value="फ"> फ<br>
+                <input type="radio" name="q6" value="ज"> ज<br>
+            </div>
+            <div class="question">
+                <p>7. "M" में कौनसी वास्तविक संख्या दिखती है?</p>
+                <input type="radio" name="q7" value="3"> 3<br>
+                <input type="radio" name="q7" value="1"> 1<br>
+                <input type="radio" name="q7" value="7"> 7<br>
+                <input type="radio" name="q7" value="8"> 8<br>
+            </div>
+            <button type="button" onclick="submitQuiz()">प्रश्नोत्तरी जमा करें</button>
+        </form>
+        <div id="result">
+            <h3>आपका स्कोर: <span id="score"></span>/7</h3>
+        </div>
+        <div class="content">
+            <h4>विवरण:</h4>
+            <p>आपको इन सबका उत्तर देने के बाद लग रहा होगा कि यह सब क्या है और हमसे क्यों पूछा जा रहा है। आपके मन में सवाल भी आ रहा होगा कि क्या यही फॉर्मूला है? तो ऐसा बिलकुल नहीं है। यह हमारे टॉपिक में है, जिनके बारे में आपको बताया जाएगा, और फिर उनका कैसे हमारे फॉर्मूलों में प्रयोग होता है यह समझाया जाएगा।</p>
+            <h4>टॉपिक्स:</h4>
+            <ul>
+                <li>फुल माउथ वर्ड</li>
+                <li>वास्तविक संख्या</li>
+                <li>आकृतिक संख्या</li>
+                <li>अंग्रेज़ी वर्ड से वास्तविक संख्या</li>
+            </ul>
+            <p>यह सब टॉपिक्स के बारे में आपको समझने पर ही समझ में आएगा। क्योंकि जब से हमने पढ़ना शुरू किया था, तब से हम इनको देख रहे हैं, पर कभी अलग नजरिए से नहीं देखे। तो मिलते हैं हमारे कोर्स में!</p>
+        </div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            const answers = {
+                q1: 'क',
+                q2: '2',
+                q3: '4',
+                q4: 'no',
+                q5: 'no',
+                q6: 'ज',
+                q7: '3'
+            };
+
+            let score = 0;
+            for (let key in answers) {
+                const userAnswer = document.querySelector(`input[name="${key}"]:checked`);
+                if (userAnswer && userAnswer.value === answers[key]) {
+                    score++;
+                }
+            }
+
+            document.getElementById('quizForm').style.display = 'none';
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('score').innerText = score;
+        }
+    </script>
+</body>
+</html>
