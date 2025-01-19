@@ -646,4 +646,9 @@ nav ul li a:hover {
 body {
     font-family: 'Poppins', sans-serif;
 }
+}
+.blog-page .blog-item {
+    padding: 55px; /* Blog page ke liye padding zyada */
+}
+
 
