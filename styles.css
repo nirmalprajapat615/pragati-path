@@ -724,6 +724,6 @@ body {
 }
 @media (max-width: 768px) {
     .blog-page .blog-item {
-        padding: 20px; /* Mobile devices ke liye padding kam karein */
+        padding: 15px; /* Mobile devices ke liye padding kam karein */
     }
 }
